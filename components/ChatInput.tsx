@@ -6,6 +6,8 @@ import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { useSession } from "next-auth/react";
 import { FormEvent, useState } from "react";
 import { toast } from "react-hot-toast";
+import ModelSelection from "./ModelSelection";
+import useSWR from "swr";
 
 type Props = {
   chatId: string;
@@ -16,7 +18,10 @@ function ChatInput({ chatId }: Props) {
   const { data: session } = useSession();
 
   // useSwr to get the model
-  const model = "text-davinci-003";
+  // const model = "text-davinci-003";
+  const { data: model } = useSWR("model", {
+    fallbackData: "text-davinci-003",
+  }); //key should be same -> "model" as used when first fetch request is made.d
 
   const sendMessage = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -93,7 +98,9 @@ function ChatInput({ chatId }: Props) {
         </form>
       </div>
       {/* ModelSelection */}
-      <div className="py-2 md:hidden"></div>
+      <div className="py-2 md:hidden">
+        <ModelSelection />
+      </div>
     </>
   );
 }
