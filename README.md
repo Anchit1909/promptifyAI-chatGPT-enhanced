@@ -31,7 +31,9 @@ PromptifyAI is an advanced version of ChatGPT, offering additional features to u
 
 ## How it works
 
-It uses ChatGPT API from OpenAI to generate response to messages. This application also gives you storage for storing chats which is powered by Firebase. The user authentication system is made possible using **NextAuth**.
+- It uses ChatGPT API from OpenAI to generate response to messages.
+- This application also gives you storage for storing chats which is powered by **Firebase**.
+- The user authentication system is made possible using **NextAuth**.
 
 ## Tech Stack
 
