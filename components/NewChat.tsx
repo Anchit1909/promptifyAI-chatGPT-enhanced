@@ -20,6 +20,7 @@ function NewChat() {
     );
     router.push(`/chat/${doc.id}`);
   };
+
   return (
     <button
       type="button"
